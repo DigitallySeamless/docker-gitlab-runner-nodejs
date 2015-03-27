@@ -1,4 +1,4 @@
-FROM digitallyseamless/nodejs-bower-grunt
+FROM digitallyseamless/nodejs-bower-grunt:0.12
 
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
