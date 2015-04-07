@@ -9,5 +9,6 @@ RUN curl https://raw.githubusercontent.com/DigitallySeamless/nvm/system-globals/
 		sed -i 's;nvm\.sh"  # This loads nvm;nvm.sh" \&> /dev/null  # This loads nvm;' ~/.bashrc
 
 # install root ca
-ADD digitallyseamless_root_ca.crt /usr/local/share/ca-certificates/DIGITALLY_SEAMLESS_ROOT_CA.crt
-RUN update-ca-certificates --fresh
+RUN curl https://raw.githubusercontent.com/DigitallySeamless/docker-gitlab-runner-nodejs/master/digitallyseamless_root_ca.crt \
+		> /usr/local/share/ca-certificates/DIGITALLY_SEAMLESS_ROOT_CA.crt && \
+		update-ca-certificates
