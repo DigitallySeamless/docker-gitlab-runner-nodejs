@@ -1,5 +1,7 @@
 FROM digitallyseamless/nodejs-bower-grunt:0.12
 
+# setup env
+ENV BASH_ENV ~/.bashrc
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
 # install root ca
