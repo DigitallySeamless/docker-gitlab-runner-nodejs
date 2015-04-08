@@ -5,7 +5,7 @@ ENV BASH_ENV ~/.bashrc
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
 # install nvm
-RUN curl https://raw.githubusercontent.com/DigitallySeamless/nvm/system-globals/install.sh | bash && \
+RUN curl https://raw.githubusercontent.com/DigitallySeamless/nvm/v0.24.1-system-globals/install.sh | bash && \
 		sed -i 's;nvm\.sh"  # This loads nvm;nvm.sh" \&> /dev/null  # This loads nvm;' ~/.bashrc
 
 # install root ca
