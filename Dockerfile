@@ -5,8 +5,9 @@ ENV BASH_ENV ~/.bashrc
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
 # install nvm
-RUN curl https://raw.githubusercontent.com/DigitallySeamless/nvm/v0.24.1-system-globals/install.sh | bash && \
-		sed -i 's;nvm\.sh"  # This loads nvm;nvm.sh" \&> /dev/null  # This loads nvm;' ~/.bashrc
+RUN curl https://raw.githubusercontent.com/DigitallySeamless/nvm/v0.25.4-system-globals/install.sh | bash && \
+		echo -e '#!/bin/bash\n[[ -f "/root/.nvm/nvm.sh" ]] && . /root/.nvm/nvm.sh && nvm "$@"' > /bin/nvm && \
+    chmod +x /bin/nvm
 
 # install root ca
 RUN curl https://raw.githubusercontent.com/DigitallySeamless/docker-gitlab-runner-nodejs/master/digitallyseamless_root_ca.crt \
