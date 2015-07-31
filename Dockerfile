@@ -4,6 +4,9 @@ FROM digitallyseamless/nodejs-bower-grunt
 ENV BASH_ENV ~/.bashrc
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
+# configure npm
+RUN echo 'unsafe-perm = true' >> /root/.npmrc
+
 # install nvm
 RUN curl https://raw.githubusercontent.com/DigitallySeamless/nvm/v0.25.4-system-globals/install.sh | bash && \
 		echo -e '#!/bin/bash\n[[ -f "/root/.nvm/nvm.sh" ]] && . /root/.nvm/nvm.sh && nvm "$@"' > /bin/nvm && \
